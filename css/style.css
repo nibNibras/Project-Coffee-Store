@@ -11,6 +11,7 @@
     outline: none;
     border: none;
     text-decoration: none;
+    transition: .2s linear;
 }
 
 html {
@@ -19,8 +20,10 @@ html {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--bg);
+    background-color: #f7f1e1;
     color: #fff;
+    margin: 0;
+    padding: 0;
 }
 
 .logo {
@@ -32,6 +35,7 @@ body {
     cursor: none;
 }
 
+/*NAVBAR*/
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -50,23 +54,11 @@ body {
     display: inline-block;
     font-size: 1.2rem;
     margin: 0 1rem;
+    font-weight: 600;
 }
 
 .navbar .navbar-nav a:hover {
     color: #DEC17C;
-}
-
-.navbar .navbar-nav a::after {
-    content: '';
-    display: block;
-    padding: 0.01rem;
-    border-bottom: 0.1rem solid #EBD9AF;
-    transform: scaleX(0);
-    transition: 0.2s linear;
-}
-
-.navbar .navbar-nav a:hover::after {
-    transform: scaleX(1);
 }
 
 .navbar .navbar-extra a {
@@ -82,6 +74,27 @@ body {
     display: none;
 }
 
+.navbar .navbar-nav .contact-btn {
+    display: inline-block;
+    border-radius: 3rem;
+    color: #fff;
+    background-color: #5E7249;
+    border: 1px solid #DEC17C;
+    padding: .4rem 1.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.navbar .navbar-nav .contact-btn:hover {
+    background-color: #DEC17C;
+    border: 1px solid #5E7249;
+    color: #5E7249;
+}
+
+
+
+/*HOME*/
 .hero {
     min-height: 100vh;
     display: flex;
@@ -91,6 +104,7 @@ body {
     background-size: cover;
     background-position: center;
     position: relative;
+    cursor: default;
 }
 
 .hero::after {
@@ -104,40 +118,143 @@ body {
 
 .hero .content {
     padding: 1.4rem 7%;
-    max-width: 60rem;
+    max-width: 55rem;
 }
 
 .hero .content h1 {
-    font-size: 5em;
-    color: #fff;
+    font-size: 3rem;
+    color: #cc9241;
     text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
     line-height: 1.2;
 }
 
-.hero .content h1 span {
-    color: var(--primary);
-}
-
-.hero .content h1 span {
-    color: var(--primary);
+.hero ,.content h1 span {
+    color: #cc9241;
 }
 
 .hero .content p {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     margin-top: 1rem;
     line-height: 1.4;
-    font-weight: 100;
+    font-weight: 150;
     text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
     mix-blend-mode: difference;
+    color: #bdb9b9;
 }
 
 .hero .content .cta {
+    font-size: 1.2rem;
+    font-weight: 600;
+    background-color: #5E7249;
+    color: #fff;
+    border-radius: 4rem;
+    padding : .5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
     margin-top: 1rem;
     display: inline-block;
-    padding: 1rem 3rem;
-    font-size: 1.4rem;
-    color: #fff;
-    background-color: var(--primary);
-    border-radius: 0.5rem;
     box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+    cursor: pointer;
+}
+
+.hero .content .cta:hover {
+    background-color: #f7f1e1;
+    color: #AE7233;
+    border: 1px solid #5E7249;
+    box-shadow: none;
+}
+
+
+/*ABOUT*/
+.about {
+    padding: 4rem 2rem;
+    cursor: default;
+}
+
+.heading {
+    text-align: center;
+    font-size: 3rem;
+    margin: 0 0 2rem 0;
+    color: #5E7249;
+}
+
+.about .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.video-container {
+    flex: 1 1 45%;
+    position: relative;
+    max-width: 600px;
+    aspect-ratio: 16 / 9;
+    overflow: visible;
+    border-radius: 12px;
+    cursor: none;
+}
+
+.video-container video,
+.video-container img {
+    position: absolute;
+    width: 90%;
+    height: 75%;
+    object-fit: cover;
+    border-radius: 12px;
+    top: 0;
+    left: 0;
+    padding-left: 3rem;
+}
+
+.video-container img {
+    z-index: 2;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    top: -10%;
+    left: -5%;
+}
+
+.content {
+    flex: 1 1 45%;
+    max-width: 600px;
+}
+
+.content h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #cc9241;
+    text-decoration: #5E7249 underline;
+}
+
+.content p {
+    line-height: 1.8;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #DEC17C;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+  .about .row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about .content {
+    max-width: 100%;
+  }
+
+  .video-container {
+    max-width: 100%;
+  }
+
+  .heading {
+    font-size: 2.2rem;
+  }
 }
