@@ -16,6 +16,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px;
 }
 
 body {
@@ -93,6 +94,23 @@ body {
     color: #5E7249;
 }
 
+#hamburger-menu i {
+    transition: 0.3s ease;
+}
+
+/* Overlay styling */
+#nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 9990;
+    display: none;
+    backdrop-filter: blur(2px);
+}
+
 
 
 /*HOME*/
@@ -167,6 +185,10 @@ body {
 
 
 /*ABOUT*/
+#about {
+    min-height: 100vh;
+}
+
 .about {
     padding: 4rem 2rem;
     cursor: default;
@@ -236,14 +258,14 @@ body {
     line-height: 1.8;
     font-size: 1rem;
     margin-bottom: 1rem;
-    color: #DEC17C;
+    color: #5E7249;
 }
 
 
 
 /*MENU*/
 .menu {
-    min-height: 100vh;
+    min-height: 150vh;
 }
 
 .menu .row {
@@ -263,7 +285,7 @@ body {
 
 .menu .row .menu-container {
     width: 380px;
-    height: 340px;
+    height: 350px;
     background-color: #5e7249;
     border-radius: 20px;
     padding: 2rem 1.5rem 1.5rem;
@@ -331,6 +353,13 @@ body {
     font-size: 1rem;
 }
 
+.cart-btn:hover {
+    background-color: #AE7233;
+    color: #EBD9AF;
+    transform: scale(1.03);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
 .likes {
     background-color: #f2f1e8;
     width: 45px;
@@ -342,64 +371,398 @@ body {
     border: 1px solid #000;
     font-size: 1rem;
     cursor: pointer;
-    padding-top: 7px;
-    padding-left: 1.5px;
-}
-
-.likes a {
-    color: #AE7233;
-}
-
-.cart-btn:hover {
-    background-color: #AE7233;
-    color: #EBD9AF;
-    transform: scale(1.03);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-}
+    transition: all 0.3s ease;
+    }
 
 .likes:hover {
     background-color: #d44545;
-    border-color: #000;
+    transform: scale(1.05);
 }
 
-.likes:hover a {
-    color: white;
+.likes svg {
+    stroke: #AE7233;
+    stroke-width: 2;
+    transition: stroke 0.3s ease, fill 0.3s ease;
+}
+
+.likes svg:hover {
+    stroke: #f2f1e8;
 }
 
 
 
+/*MAPS*/
+.map-address {
+    min-height: 100vh;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 768px) {
-  .about .row {
+.map-address {
+    padding: 2rem 10%;
+    display: flex;
     flex-direction: column;
+    gap: 1.5rem;
     text-align: center;
-  }
-
-  .about .content {
-    max-width: 100%;
-  }
-
-  .video-container {
-    max-width: 100%;
-  }
-
-  .heading {
-    font-size: 2.2rem;
-  }
 }
+
+.map-address .info h2 {
+    color: #AE7233;
+    margin-bottom: 0.5rem;
+    text-decoration: underline #5E7249;
+}
+
+.map-address .info p {
+    color: #cc9241;
+}
+
+
+
+
+
+
+/*CONTACT*/
+.contact {
+    min-height: 100vh;
+}
+
+.contact .heading {
+    color: #AE7233;
+    line-height: 1;   
+}
+
+.contact .subheading {
+    text-align: center;
+    color: #5E7249;
+    font-size: 1.1rem;
+    font-style: italic;
+    font-weight: 400;
+    max-width: 900px;
+    margin: -1rem auto 2rem;
+    opacity: 0.85;
+    font-family: 'Dancing Script', ;
+}
+
+.contact .subheading::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: #AE7233;
+    margin: 0.5rem auto 0;
+    border-radius: 99px;
+}
+
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    padding: 4rem 10%;
+    max-width: 1000px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.contact-left,
+.contact-right {
+    flex: 1;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    margin-top: 0;
+}
+
+.contact-form button {
+    background: #AE7233;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #5E7249;
+    transform: scale(1.03);
+    border: 1px solid #000000;
+}
+
+.menu-image {
+    text-align: center;
+}
+
+.menu-image img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 16px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.menu-image img:hover {
+    transform: scale(1.1);
+}
+
+.menu-caption {
+    margin-top: 0.8rem;
+    color: #5E7249;
+    font-style: italic;
+}
+
+
+
+
+/*FOOTER*/
+footer {
+    background-color: #5E7249;
+    color: white;
+    padding: 2rem 10%;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.footer-content p {
+    cursor: default;
+}
+
+.social-icons a {
+    color: white;
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #CFA160;
+}
+
+
+
+
+
+
+
+/*LAPTOP*/
+@media (max-width: 1366px) {
+    html {
+        font-size: 90%;
+    }
+
+    .menu .row .menu-container {
+        width: 340px;
+        height: auto;
+        padding-top: 100px;
+    }
+
+    .image-wrap {
+        width: 200px;
+        height: 200px;
+    }
+
+    .hero .content h1 {
+        font-size: 2.5rem;
+    }
+
+    .contact-content {
+        padding: 3rem 5%;
+    }
+}
+
+
+
+
+
+/*TABLET*/
+@media (max-width: 768px) {
+    html {
+        font-size: 85%;
+    }
+
+    .navbar {
+        padding: 1rem 5%;
+    }
+
+    #hamburger-menu {
+        display: inline-block;
+        font-size: 2rem;
+        color: #fff;
+        cursor: pointer;
+        z-index: 10001;
+    }
+
+    .navbar .navbar-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background-color: #fff;
+        width: 300px;
+        height: 100vh;
+        padding: 6rem 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        transition: right 0.4s ease;
+        z-index: 10000;
+    }
+
+    .navbar .navbar-nav.active {
+        right: 0;
+    }
+
+    .navbar .navbar-nav a {
+        font-size: 1.5rem;
+        color: #5E7249;
+        font-weight: bold;
+    }
+
+    #nav-overlay.active {
+        display: block;
+    }
+
+    .hero {
+        background: none;
+        text-align: center;
+    }
+
+    .hero .content h1 {
+        font-size: 2.2rem;
+    }
+
+    .menu .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu .row .menu-container {
+        width: 90%;
+        height: auto;
+        padding-top: 100px;
+    }
+
+    .image-wrap {
+        width: 180px;
+        height: 180px;
+    }
+
+    .about .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .video-container {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .content {
+        text-align: center;
+    }
+
+    .map-address {
+        margin-top: 100px;
+        margin-bottom: 0;
+    }
+
+    .contact {
+        margin-top: 0;
+    }
+
+    .contact .heading {
+        font-size: 2rem;
+        justify-content: center;
+        text-align: center;
+        margin-left: 4rem;
+        margin-top: 0;
+    }
+
+    .contact .heading,
+    .contact .subheading {
+        max-width: 400px;
+    }
+
+    .contact-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-left, .contact-right {
+        width: 100%;
+    }
+
+    .menu-image img {
+        max-width: 300px;
+    }
+}
+
+
+
+
+/*MOBILE*/
+@media (max-width: 450px) {
+    html {
+        font-size: 80%;
+    }
+
+    .navbar {
+        flex-direction: column;
+        padding: 1rem 2rem;
+    }
+
+    .navbar .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .hero .content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero .content p {
+        font-size: 1rem;
+    }
+
+    .menu .row .menu-container {
+        width: 100%;
+        padding: 2rem 1rem 1rem;
+        padding-top: 90px;
+    }
+
+    .image-wrap {
+        width: 160px;
+        height: 160px;
+    }
+
+    .map-address {
+        padding: 1rem 5%;
+    }
+
+    .contact-content {
+        padding: 2rem 5%;
+    }
+
+    .contact-form button {
+        width: 100%;
+    }
+
+    .menu-image img {
+        max-width: 250px;
+    }
+
+    footer {
+        padding: 1.5rem 5%;
+    }
+}
+
+

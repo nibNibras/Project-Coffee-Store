@@ -1,12 +1,43 @@
 const hamburger = document.getElementById('hamburger-menu');
-const navLinks = document.getElementById('navLinks');
+const nav = document.querySelector('.navbar-nav');
+const navLinks = document.querySelectorAll('.navbar-nav a');
+const overlay = document.getElementById('nav-overlay');
 
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-});
+const iconMenu = document.querySelector('.icon-menu');
+const iconClose = document.querySelector('.icon-close');
 
-document.querySelectorAll('.nav-links a').forEach(link => {
+function toggleMenu() {
+  nav.classList.toggle('active');
+  overlay.classList.toggle('active');
+
+  // Toggle icons
+  if (nav.classList.contains('active')) {
+    iconMenu.style.display = 'none';
+    iconClose.style.display = 'inline-block';
+  } else {
+    iconMenu.style.display = 'inline-block';
+    iconClose.style.display = 'none';
+  }
+}
+
+hamburger.addEventListener('click', toggleMenu);
+
+// Close on link click
+navLinks.forEach(link => {
   link.addEventListener('click', () => {
-    navLinks.classList.remove('active');
+    nav.classList.remove('active');
+    overlay.classList.remove('active');
+    iconMenu.style.display = 'inline-block';
+    iconClose.style.display = 'none';
   });
 });
+
+// Close on overlay click
+overlay.addEventListener('click', () => {
+  nav.classList.remove('active');
+  overlay.classList.remove('active');
+  iconMenu.style.display = 'inline-block';
+  iconClose.style.display = 'none';
+});
+
+
